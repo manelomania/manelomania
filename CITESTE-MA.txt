@@ -1,17 +1,22 @@
-MANELOMANIA PREMIUM – versiune cu emblema animata
+MANELOMANIA – versiune cu animație și pachete
 
-CONTINUT:
-- index.html: site-ul complet, responsive, cu animatie subtila a coroanei.
-- coroana.svg: pictograma coroanei.
+Fișiere:
+- index.html: site-ul complet
+- coroana.svg: favicon
 
-PUBLICARE / ACTUALIZARE PE GITHUB PAGES:
+Actualizare GitHub:
 1. Deschide repository-ul manelomania.
-2. Alege Add file > Upload files.
-3. Incarca index.html si coroana.svg din aceasta arhiva (si CITESTE-MA.txt optional).
-4. Confirma cu Commit changes pe ramura main.
-5. GitHub Pages va publica modificarile dupa cateva momente.
+2. Add file > Upload files.
+3. Încarcă index.html (și coroana.svg dacă este prezentă în folder).
+4. Commit changes.
 
-IMPORTANT:
-- Formularul actual pregateste o solicitare WhatsApp, dar nu stocheaza comenzi si nu trimite e-mail.
-- Numarul WhatsApp este un substituent: 40XXXXXXXXX. Inlocuieste-l doar cu un numar dedicat, aprobat pentru publicare.
-- Nu sunt activate plati online. Inainte de activitatea comerciala, configureaza cu atentie informatiile de contact, confidentialitate, termeni si obligatiile legale aplicabile.
+Pachetele afișate:
+BASIC – 27,99 lei
+PREMIUM – 40 lei
+VIP – 84,99 lei
+
+NOTĂ IMPORTANTĂ:
+- Formularul actual trimite solicitarea prin WhatsApp numai după configurarea numărului în index.html (WHATSAPP_NUMBER).
+- Numărul este momentan un substituent; nu publica un număr personal.
+- Formularul NU trimite e-mail și NU salvează comenzi într-un panou. Aceste funcții necesită conectarea și configurarea unui serviciu extern.
+- Termenul „maximum 24 de ore” trebuie confirmat pentru fiecare comandă și respectat în practică.

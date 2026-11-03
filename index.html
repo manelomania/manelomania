@@ -123,7 +123,7 @@
       <svg class="crown" viewBox="0 0 100 76" aria-hidden="true"><path d="M8 19 27 38 49 7l23 31 20-19-9 45H17L8 19Z" fill="none" stroke="#d7b66f" stroke-width="5" stroke-linejoin="round"/><path d="M17 56h66M22 67h56" stroke="#d7b66f" stroke-width="4" stroke-linecap="round"/><circle cx="8" cy="17" r="5" fill="#f0d99c"/><circle cx="49" cy="7" r="5" fill="#f0d99c"/><circle cx="92" cy="17" r="5" fill="#f0d99c"/></svg>
       <div class="wordmark">MANELOMANIA<span>MUZICĂ PERSONALIZATĂ</span></div>
     </a>
-    <nav class="links" id="navLinks"><a href="#servicii">Servicii</a><a href="#pasi">Cum funcționează</a><a href="#comanda">Comandă</a><a href="#intrebari">Întrebări</a></nav>
+    <nav class="links" id="navLinks"><a href="#servicii">Servicii</a><a href="#pachete">Pachete</a><a href="#pasi">Cum funcționează</a><a href="#comanda">Comandă</a><a href="#intrebari">Întrebări</a></nav>
     <a class="btn" href="#comanda">CREEAZĂ O MELODIE</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul" aria-expanded="false">☰</button>
   </div>
@@ -153,6 +153,18 @@
     </div>
   </section>
 
+  <section id="pachete">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Alege experiența potrivită</div><h2>Pachete și prețuri</h2><p>Prețuri clare, iar detaliile finale se confirmă înainte de începerea lucrului.</p></div>
+      <div class="cards">
+        <article class="card"><div class="card-icon">🥉</div><h3>BASIC</h3><p style="font-family:var(--serif);font-size:2rem;color:var(--gold2);margin:8px 0 16px">27,99 lei</p><p>• O melodie personalizată<br>• Versuri inspirate de povestea ta<br>• Alegerea stilului muzical<br>• Durată orientativă: 1–2 minute</p><a class="btn btn-ghost" style="margin-top:22px" href="#comanda" data-package="BASIC">ALEGE BASIC</a></article>
+        <article class="card" style="border-color:rgba(240,217,156,.58)"><div class="card-icon">🥈</div><h3>PREMIUM</h3><p style="font-family:var(--serif);font-size:2rem;color:var(--gold2);margin:8px 0 16px">40 lei</p><p>• Tot ce include BASIC<br>• Versuri personalizate în detaliu<br>• Dedicație specială<br>• Durată orientativă: 2–3 minute</p><a class="btn" style="margin-top:22px" href="#comanda" data-package="PREMIUM">ALEGE PREMIUM</a></article>
+        <article class="card"><div class="card-icon">👑</div><h3>VIP</h3><p style="font-family:var(--serif);font-size:2rem;color:var(--gold2);margin:8px 0 16px">84,99 lei</p><p>• Tot ce include PREMIUM<br>• Refren special<br>• Versiune extinsă<br>• O rundă de modificări</p><a class="btn btn-ghost" style="margin-top:22px" href="#comanda" data-package="VIP">ALEGE VIP</a></article>
+      </div>
+      <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:22px">Livrare rapidă – în maximum 24 de ore, după confirmarea termenului pentru solicitarea ta.</p>
+    </div>
+  </section>
+
   <section class="how" id="pasi">
     <div class="container">
       <div class="section-head"><div class="eyebrow">De la idee la melodie</div><h2>Trei pași simpli</h2><p>Proces clar, cu detaliile și prețul discutate înainte de începerea lucrului.</p></div>
@@ -178,9 +190,10 @@
         <div class="form-grid">
           <div class="field"><label for="name">Numele tău *</label><input id="name" name="name" autocomplete="name" required placeholder="Cum te numești?"></div>
           <div class="field"><label for="phone">Număr de contact *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="07xx xxx xxx"></div>
+          <div class="field"><label for="package">Alege pachetul *</label><select id="package" name="package" required><option value="">Selectează un pachet</option><option value="BASIC — 27,99 lei">BASIC — 27,99 lei</option><option value="PREMIUM — 40 lei">PREMIUM — 40 lei</option><option value="VIP — 84,99 lei">VIP — 84,99 lei</option></select></div>
           <div class="field"><label for="dedication">Pentru cine este melodia?</label><input id="dedication" name="dedication" placeholder="Numele persoanei"></div>
           <div class="field"><label for="occasion">Cu ce ocazie?</label><select id="occasion" name="occasion"><option>Dragoste / dedicație</option><option>Zi de naștere</option><option>Petrecere</option><option>Familie</option><option>Prietenie</option><option>Altă ocazie</option></select></div>
-          <div class="field"><label for="genre">Atmosfera dorită</label><select id="genre" name="genre"><option>Manea romantică</option><option>Manea de petrecere</option><option>Manea emoționantă</option><option>Manea de familie</option><option>Vreau o recomandare</option></select></div>
+          <div class="field"><label for="genre">Atmosfera dorită</label><select id="genre" name="genre"><option>Manea clasică</option><option>Manea modernă</option><option>Manea de petrecere</option><option>Manea de dragoste</option><option>Manea de jale</option><option>Manea pentru familie și prieteni</option><option>Vreau o recomandare</option></select></div>
           <div class="field"><label for="voice">Voce preferată</label><select id="voice" name="voice"><option>Voce masculină AI originală</option><option>Voce feminină AI originală</option><option>Fără preferință</option></select></div>
           <div class="field full"><label for="story">Povestea și mesajul melodiei *</label><textarea id="story" name="story" required placeholder="Povestește-ne ce ai vrea să transmită melodia. Poți include nume, întâmplări și expresii importante."></textarea></div>
           <div class="field full"><label for="extra">Alte preferințe (opțional)</label><input id="extra" name="extra" placeholder="Ex.: ritm mai lent, atmosferă veselă..."></div>
@@ -196,8 +209,8 @@
     <div class="container">
       <div class="section-head"><div class="eyebrow">Informații utile</div><h2>Întrebări frecvente</h2><p>Tot ce e bine să știi înainte să trimiți o solicitare.</p></div>
       <div class="faq-list">
-        <details><summary>Cât costă o melodie personalizată?</summary><p>Prețul depinde de cerințele proiectului. Îți comunicăm costul și ce include înainte să începem lucrul.</p></details>
-        <details><summary>Cât durează realizarea?</summary><p>Termenul se stabilește în funcție de complexitatea solicitării și se confirmă înainte de începerea producției.</p></details>
+        <details><summary>Cât costă o melodie personalizată?</summary><p>BASIC: 27,99 lei; PREMIUM: 40 lei; VIP: 84,99 lei. Confirmăm pachetul și detaliile înainte să începem lucrul.</p></details>
+        <details><summary>Cât durează realizarea?</summary><p>Livrare rapidă – în maximum 24 de ore, după confirmarea termenului pentru solicitarea ta.</p></details>
         <details><summary>Pot cere modificări?</summary><p>Posibilitatea și numărul modificărilor se stabilesc clar înainte de comandă, astfel încât să știi ce este inclus.</p></details>
         <details><summary>Pot cere vocea unui cântăreț cunoscut?</summary><p>Nu oferim imitarea sau clonarea vocii unei persoane reale fără permisiunea explicită a acesteia. Putem folosi voci AI originale și stiluri muzicale generale.</p></details>
       </div>
@@ -212,7 +225,7 @@
       <div class="wordmark">MANELOMANIA<span>MUZICĂ PERSONALIZATĂ</span></div>
     </div>
     <div class="footer-line">Povestea ta merită propria ei melodie.</div>
-    <div class="footer-links"><a href="#acasa">Acasă</a><a href="#servicii">Servicii</a><a href="#comanda">Comandă</a><a href="#intrebari">Întrebări</a></div>
+    <div class="footer-links"><a href="#acasa">Acasă</a><a href="#servicii">Servicii</a><a href="#pachete">Pachete</a><a href="#comanda">Comandă</a><a href="#intrebari">Întrebări</a></div>
     <div class="legal">MANELOMANIA este un concept de creație muzicală asistată de AI. Nu este afiliat artiștilor sau caselor de discuri. Folosim doar materiale, voci și elemente pentru care există drepturile și permisiunile necesare. Completează și publică informațiile juridice și de contact aplicabile înainte de a începe activitatea comercială.</div>
     <div class="legal">© <span id="year"></span> MANELOMANIA. Toate drepturile rezervate.</div>
   </div>
@@ -231,6 +244,9 @@
     toggle.setAttribute("aria-expanded", String(open));
     toggle.textContent = open ? "✕" : "☰";
   });
+  document.querySelectorAll("[data-package]").forEach(a => a.addEventListener("click", () => {
+    document.getElementById("package").value = a.dataset.package;
+  }));
   nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
     nav.classList.remove("open");
     toggle.setAttribute("aria-expanded", "false");
@@ -254,6 +270,7 @@
       "",
       "Nume: " + d.get("name"),
       "Telefon: " + d.get("phone"),
+      "Pachet: " + d.get("package"),
       "Melodia este pentru: " + (d.get("dedication") || "Nespecificat"),
       "Ocazie: " + d.get("occasion"),
       "Atmosferă: " + d.get("genre"),
