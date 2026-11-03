@@ -1,20 +1,17 @@
-MANELOMANIA — versiune premium
+MANELOMANIA PREMIUM – versiune cu emblema animata
 
-FIȘIERE:
-- index.html: site-ul complet, responsive.
-- coroana.svg: favicon cu simbolul coroanei.
-- CITESTE-MA.txt: pașii de configurare.
+CONTINUT:
+- index.html: site-ul complet, responsive, cu animatie subtila a coroanei.
+- coroana.svg: pictograma coroanei.
 
-ÎNAINTE DE PUBLICARE:
-1. Deschide index.html într-un editor de text.
-2. Caută: const WHATSAPP_NUMBER = "40XXXXXXXXX";
-3. Înlocuiește valoarea cu numărul afacerii în format internațional, doar cifre
-   (exemplu România: 407xxxxxxxx).
-4. Testează formularul pe telefon și calculator.
-5. Publică fișierele index.html și coroana.svg într-un serviciu de găzduire statică.
+PUBLICARE / ACTUALIZARE PE GITHUB PAGES:
+1. Deschide repository-ul manelomania.
+2. Alege Add file > Upload files.
+3. Incarca index.html si coroana.svg din aceasta arhiva (si CITESTE-MA.txt optional).
+4. Confirma cu Commit changes pe ramura main.
+5. GitHub Pages va publica modificarile dupa cateva momente.
 
-NOTĂ:
-- Formularul pregătește un mesaj WhatsApp; nu stochează date și nu procesează plăți.
-- Nu există încă melodii audio demo, conturi, coș sau plăți online.
-- Înainte de activitatea comercială, adaugă datele reale de contact și informațiile
-  legale necesare. Folosește numai muzică, voci și materiale pentru care ai drepturi.
+IMPORTANT:
+- Formularul actual pregateste o solicitare WhatsApp, dar nu stocheaza comenzi si nu trimite e-mail.
+- Numarul WhatsApp este un substituent: 40XXXXXXXXX. Inlocuieste-l doar cu un numar dedicat, aprobat pentru publicare.
+- Nu sunt activate plati online. Inainte de activitatea comerciala, configureaza cu atentie informatiile de contact, confidentialitate, termeni si obligatiile legale aplicabile.
