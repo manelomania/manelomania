@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="MANELOMANIA — melodii personalizate create cu ajutorul inteligenței artificiale. O poveste unică merită propria ei melodie.">
+  <title>MANELOMANIA — Povestea ta, transformată în muzică</title>
+  <link rel="icon" href="coroana.svg" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+    :root{
+      --bg:#080909;--bg2:#10110f;--panel:#141511;--panel2:#1a1a15;
+      --gold:#c9a45b;--gold2:#f0d99c;--gold3:#8d6a2e;
+      --text:#f6f1e6;--muted:#b9b3a6;--line:rgba(201,164,91,.22);
+      --serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif;
+      --shadow:0 24px 70px rgba(0,0,0,.38)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(1160px,calc(100% - 44px));margin-inline:auto}
+    .topline{height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent)}
+    header{position:sticky;top:0;z-index:50;background:rgba(8,9,9,.91);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .identity{display:flex;align-items:center;gap:12px;min-width:max-content}
+    .crown{width:42px;height:35px;filter:drop-shadow(0 3px 10px rgba(201,164,91,.22))}
+    .wordmark{font-weight:700;letter-spacing:2.3px;font-size:1.05rem;line-height:1.1}
+    .wordmark span{display:block;color:var(--gold2);font-size:.58rem;letter-spacing:4px;margin-top:6px;text-align:center}
+    .links{display:flex;align-items:center;gap:30px;color:#d5cebf;font-size:.88rem}
+    .links a{transition:color .2s}.links a:hover{color:var(--gold2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border:1px solid transparent;border-radius:4px;background:linear-gradient(135deg,#f2dfa9,#c39a4b);color:#17130b;font-weight:700;font-size:.83rem;letter-spacing:.5px;cursor:pointer;transition:transform .2s,filter .2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .btn-ghost{background:transparent;border-color:var(--line);color:var(--gold2)}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--gold2);padding:8px 11px;border-radius:4px}
+    .hero{min-height:690px;display:grid;align-items:center;position:relative;overflow:hidden;background:
+      radial-gradient(ellipse at 50% 42%,rgba(153,112,39,.17),transparent 42%),
+      linear-gradient(110deg,rgba(7,8,8,.98),rgba(15,14,11,.88),rgba(7,8,8,.98))}
+    .hero:before{content:"";position:absolute;inset:30px 5%;border:1px solid rgba(201,164,91,.09);pointer-events:none}
+    .hero:after{content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(201,164,91,.08);border-radius:50%;left:50%;top:48%;transform:translate(-50%,-50%);box-shadow:0 0 0 45px rgba(201,164,91,.018),0 0 0 90px rgba(201,164,91,.012);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;text-align:center;padding:90px 0}
+    .crest{width:76px;height:62px;margin:0 auto 24px;display:block;filter:drop-shadow(0 5px 18px rgba(201,164,91,.3))}
+    .eyebrow{color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-family:var(--serif);font-size:clamp(3.2rem,8vw,6.7rem);line-height:.99;letter-spacing:2px;color:var(--gold2);margin:18px 0 22px;text-shadow:0 10px 40px #000}
+    .hero-sub{font-family:var(--serif);font-size:clamp(1.15rem,2.6vw,1.55rem);color:#eee4ce;margin:0 auto 15px}
+    .hero-copy{max-width:650px;margin:0 auto 32px;color:var(--muted);font-size:1rem}
+    .actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
+    .microcopy{font-size:.75rem;color:#8f897c;margin-top:23px}
+    section{padding:94px 0}
+    .section-head{text-align:center;max-width:690px;margin:0 auto 48px}
+    h2{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.12;color:var(--gold2);margin:10px 0 15px}
+    .section-head p{color:var(--muted);margin-bottom:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{padding:30px 27px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,30,24,.92),rgba(15,16,14,.98));border-radius:7px;box-shadow:var(--shadow)}
+    .card-icon{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:1.25rem;margin-bottom:20px}
+    .card h3{font-family:var(--serif);font-size:1.35rem;color:#f0dfb7;margin-bottom:9px}
+    .card p{color:var(--muted);font-size:.91rem;margin-bottom:0}
+    .how{background:linear-gradient(180deg,#0c0d0c,#11110e 55%,#0a0b0a);border-block:1px solid rgba(201,164,91,.09)}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:item}
+    .step{padding:5px 20px 20px 0;border-top:1px solid var(--line);counter-increment:item}
+    .step:before{content:"0" counter(item);display:block;color:var(--gold);font-family:var(--serif);font-size:2rem;margin:18px 0}
+    .step h3{color:var(--gold2);font-family:var(--serif);font-size:1.3rem;margin-bottom:7px}
+    .step p{color:var(--muted);font-size:.91rem}
+    .order-section{background:radial-gradient(ellipse at 50% 10%,rgba(153,112,39,.12),transparent 55%)}
+    .order-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:42px;align-items:start}
+    .order-aside{position:sticky;top:115px}
+    .order-aside h2{font-size:2.6rem}
+    .order-aside p{color:var(--muted)}
+    .aside-note{padding:18px;border-left:2px solid var(--gold);background:rgba(201,164,91,.06);color:#c8c0b0;font-size:.85rem;margin-top:25px}
+    form{padding:clamp(22px,4vw,38px);background:linear-gradient(145deg,#171812,#10110f);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}
+    .form-title{font-family:var(--serif);font-size:1.5rem;color:var(--gold2);margin-bottom:6px}
+    .form-intro{font-size:.87rem;color:var(--muted);margin-bottom:25px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+    .field.full{grid-column:1/-1}
+    label{display:block;color:#e7d7b4;font-size:.82rem;font-weight:600;margin-bottom:7px}
+    input,select,textarea{width:100%;background:#090a09;border:1px solid #48412f;color:var(--text);padding:13px 14px;border-radius:4px;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,164,91,.1)}
+    textarea{min-height:135px;resize:vertical}
+    input::placeholder,textarea::placeholder{color:#777267}
+    .consent{display:flex;align-items:flex-start;gap:10px;margin:18px 0;color:#a9a293;font-size:.78rem}
+    .consent input{width:auto;margin-top:4px;accent-color:var(--gold)}
+    .consent a{color:var(--gold2);text-decoration:underline}
+    .submit{width:100%;margin-top:4px}
+    .form-status{font-size:.84rem;color:var(--gold2);margin-top:13px;min-height:1.3em}
+    .faq{background:#10110f}
+    .faq-list{max-width:820px;margin:auto}
+    details{border-bottom:1px solid var(--line);padding:19px 0}
+    summary{cursor:pointer;color:#e9d9b8;font-weight:600}
+    details p{color:var(--muted);font-size:.9rem;margin:12px 0 0}
+    footer{padding:45px 0 28px;border-top:1px solid var(--line);background:#070808;text-align:center}
+    .footer-brand{display:inline-flex;align-items:center;gap:10px;margin-bottom:13px}
+    .footer-line{color:#9b9486;font-size:.82rem}
+    .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;color:#c8b98f;font-size:.8rem;margin:18px 0}
+    .legal{max-width:850px;margin:20px auto 0;color:#777366;font-size:.72rem}
+    @media(max-width:850px){.links{gap:16px}.order-layout{grid-template-columns:1fr}.order-aside{position:static}.cards{grid-template-columns:1fr 1fr}}
+    @media(max-width:650px){
+      .container{width:min(100% - 30px,1160px)}.nav{height:70px}.links{display:none;position:absolute;top:70px;left:0;right:0;background:#0b0c0b;padding:20px;flex-direction:column;border-bottom:1px solid var(--line)}
+      .links.open{display:flex}.nav>.btn{display:none}.menu-toggle{display:block}.hero{min-height:610px}.hero:before{inset:15px 3%}
+      section{padding:68px 0}.cards,.steps{grid-template-columns:1fr}.step{padding-right:0}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+      .order-aside h2{font-size:2.2rem}
+    }
+  </style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+  <div class="container nav">
+    <a class="identity" href="#acasa" aria-label="Manelomania - Acasă">
+      <svg class="crown" viewBox="0 0 100 76" aria-hidden="true"><path d="M8 19 27 38 49 7l23 31 20-19-9 45H17L8 19Z" fill="none" stroke="#d7b66f" stroke-width="5" stroke-linejoin="round"/><path d="M17 56h66M22 67h56" stroke="#d7b66f" stroke-width="4" stroke-linecap="round"/><circle cx="8" cy="17" r="5" fill="#f0d99c"/><circle cx="49" cy="7" r="5" fill="#f0d99c"/><circle cx="92" cy="17" r="5" fill="#f0d99c"/></svg>
+      <div class="wordmark">MANELOMANIA<span>MUZICĂ PERSONALIZATĂ</span></div>
+    </a>
+    <nav class="links" id="navLinks"><a href="#servicii">Servicii</a><a href="#pasi">Cum funcționează</a><a href="#comanda">Comandă</a><a href="#intrebari">Întrebări</a></nav>
+    <a class="btn" href="#comanda">CREEAZĂ O MELODIE</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="acasa">
+    <div class="container hero-inner">
+      <svg class="crest" viewBox="0 0 100 76" aria-hidden="true"><path d="M8 19 27 38 49 7l23 31 20-19-9 45H17L8 19Z" fill="none" stroke="#d7b66f" stroke-width="4" stroke-linejoin="round"/><path d="M17 56h66M22 67h56" stroke="#d7b66f" stroke-width="3" stroke-linecap="round"/><circle cx="8" cy="17" r="4" fill="#f0d99c"/><circle cx="49" cy="7" r="4" fill="#f0d99c"/><circle cx="92" cy="17" r="4" fill="#f0d99c"/></svg>
+      <div class="eyebrow">Un concept muzical creat pentru tine</div>
+      <h1>MANELOMANIA</h1>
+      <p class="hero-sub">Povestea ta merită propria ei melodie.</p>
+      <p class="hero-copy">O dedicație, o amintire sau un mesaj special — transformă-ți ideea într-o melodie personalizată, creată cu ajutorul inteligenței artificiale.</p>
+      <div class="actions"><a class="btn" href="#comanda">✦ &nbsp;CREEAZĂ-ȚI MELODIA</a><a class="btn btn-ghost" href="#servicii">DESCOPERĂ CONCEPTUL</a></div>
+      <div class="microcopy">Personalizare • Discuție directă • Confirmarea detaliilor înainte de producție</div>
+    </div>
+  </section>
+
+  <section id="servicii">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Muzică pe gustul tău</div><h2>Spune-ne povestea. Alegem împreună vibe-ul.</h2><p>Fiecare comandă pornește de la ideea ta. Selectează atmosfera, iar detaliile le stabilim împreună.</p></div>
+      <div class="cards">
+        <article class="card"><div class="card-icon">♡</div><h3>Dragoste & dedicații</h3><p>O melodie cu nume, amintiri și un mesaj special pentru cineva drag.</p></article>
+        <article class="card"><div class="card-icon">♬</div><h3>Petrecere & aniversare</h3><p>Un moment muzical personalizat pentru ziua de naștere sau o petrecere.</p></article>
+        <article class="card"><div class="card-icon">♛</div><h3>Familie & prieteni</h3><p>O piesă despre oamenii, întâmplările și legăturile importante din viața ta.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="pasi">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">De la idee la melodie</div><h2>Trei pași simpli</h2><p>Proces clar, cu detaliile și prețul discutate înainte de începerea lucrului.</p></div>
+      <div class="steps">
+        <div class="step"><h3>Ne spui ideea</h3><p>Completezi formularul cu povestea, dedicația și stilul muzical dorit.</p></div>
+        <div class="step"><h3>Confirmăm detaliile</h3><p>Discutăm pe WhatsApp cerințele, prețul, termenul și ce primești la final.</p></div>
+        <div class="step"><h3>Pregătim melodia</h3><p>După confirmarea ta, realizăm piesa și stabilim modalitatea de livrare.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="order-section" id="comanda">
+    <div class="container order-layout">
+      <div class="order-aside">
+        <div class="eyebrow">Hai să începem</div>
+        <h2>Melodia începe cu povestea ta.</h2>
+        <p>Completează formularul cât mai detaliat. Îți vom pregăti un mesaj cu informațiile comenzii, pe care îl poți trimite direct pe WhatsApp.</p>
+        <div class="aside-note"><strong>Important:</strong> trimiterea formularului nu înseamnă că ai plasat o comandă plătită. Confirmăm împreună toate detaliile și prețul înainte de producție.</div>
+      </div>
+      <form id="orderForm">
+        <div class="form-title">Formular de personalizare</div>
+        <p class="form-intro">Câmpurile marcate cu * sunt obligatorii.</p>
+        <div class="form-grid">
+          <div class="field"><label for="name">Numele tău *</label><input id="name" name="name" autocomplete="name" required placeholder="Cum te numești?"></div>
+          <div class="field"><label for="phone">Număr de contact *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="07xx xxx xxx"></div>
+          <div class="field"><label for="dedication">Pentru cine este melodia?</label><input id="dedication" name="dedication" placeholder="Numele persoanei"></div>
+          <div class="field"><label for="occasion">Cu ce ocazie?</label><select id="occasion" name="occasion"><option>Dragoste / dedicație</option><option>Zi de naștere</option><option>Petrecere</option><option>Familie</option><option>Prietenie</option><option>Altă ocazie</option></select></div>
+          <div class="field"><label for="genre">Atmosfera dorită</label><select id="genre" name="genre"><option>Manea romantică</option><option>Manea de petrecere</option><option>Manea emoționantă</option><option>Manea de familie</option><option>Vreau o recomandare</option></select></div>
+          <div class="field"><label for="voice">Voce preferată</label><select id="voice" name="voice"><option>Voce masculină AI originală</option><option>Voce feminină AI originală</option><option>Fără preferință</option></select></div>
+          <div class="field full"><label for="story">Povestea și mesajul melodiei *</label><textarea id="story" name="story" required placeholder="Povestește-ne ce ai vrea să transmită melodia. Poți include nume, întâmplări și expresii importante."></textarea></div>
+          <div class="field full"><label for="extra">Alte preferințe (opțional)</label><input id="extra" name="extra" placeholder="Ex.: ritm mai lent, atmosferă veselă..."></div>
+        </div>
+        <label class="consent"><input type="checkbox" id="agree" required><span>Confirm că am dreptul să trimit informațiile incluse și sunt de acord ca datele din formular să fie folosite pentru a răspunde solicitării mele. Nu include date sensibile.</span></label>
+        <button class="btn submit" type="submit">TRIMITE SOLICITAREA PE WHATSAPP &nbsp;→</button>
+        <div class="form-status" id="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="faq" id="intrebari">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Informații utile</div><h2>Întrebări frecvente</h2><p>Tot ce e bine să știi înainte să trimiți o solicitare.</p></div>
+      <div class="faq-list">
+        <details><summary>Cât costă o melodie personalizată?</summary><p>Prețul depinde de cerințele proiectului. Îți comunicăm costul și ce include înainte să începem lucrul.</p></details>
+        <details><summary>Cât durează realizarea?</summary><p>Termenul se stabilește în funcție de complexitatea solicitării și se confirmă înainte de începerea producției.</p></details>
+        <details><summary>Pot cere modificări?</summary><p>Posibilitatea și numărul modificărilor se stabilesc clar înainte de comandă, astfel încât să știi ce este inclus.</p></details>
+        <details><summary>Pot cere vocea unui cântăreț cunoscut?</summary><p>Nu oferim imitarea sau clonarea vocii unei persoane reale fără permisiunea explicită a acesteia. Putem folosi voci AI originale și stiluri muzicale generale.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">
+      <svg class="crown" viewBox="0 0 100 76" aria-hidden="true"><path d="M8 19 27 38 49 7l23 31 20-19-9 45H17L8 19Z" fill="none" stroke="#d7b66f" stroke-width="5" stroke-linejoin="round"/><path d="M17 56h66M22 67h56" stroke="#d7b66f" stroke-width="4" stroke-linecap="round"/></svg>
+      <div class="wordmark">MANELOMANIA<span>MUZICĂ PERSONALIZATĂ</span></div>
+    </div>
+    <div class="footer-line">Povestea ta merită propria ei melodie.</div>
+    <div class="footer-links"><a href="#acasa">Acasă</a><a href="#servicii">Servicii</a><a href="#comanda">Comandă</a><a href="#intrebari">Întrebări</a></div>
+    <div class="legal">MANELOMANIA este un concept de creație muzicală asistată de AI. Nu este afiliat artiștilor sau caselor de discuri. Folosim doar materiale, voci și elemente pentru care există drepturile și permisiunile necesare. Completează și publică informațiile juridice și de contact aplicabile înainte de a începe activitatea comercială.</div>
+    <div class="legal">© <span id="year"></span> MANELOMANIA. Toate drepturile rezervate.</div>
+  </div>
+</footer>
+
+<script>
+  // Înainte de publicare: înlocuiește cu numărul WhatsApp al afacerii,
+  // în format internațional, doar cifre. Exemplu pentru România: 407xxxxxxxx.
+  const WHATSAPP_NUMBER = "40XXXXXXXXX";
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("navLinks");
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.textContent = open ? "✕" : "☰";
+  });
+  nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "☰";
+  }));
+
+  document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const status = document.getElementById("status");
+    if (!document.getElementById("agree").checked) {
+      status.textContent = "Te rugăm să confirmi acordul pentru prelucrarea solicitării.";
+      return;
+    }
+    if (WHATSAPP_NUMBER.includes("X")) {
+      status.textContent = "Formular demonstrativ: adaugă numărul WhatsApp în fișierul index.html pentru a activa trimiterea.";
+      return;
+    }
+    const d = new FormData(this);
+    const message = [
+      "Bună! Aș dori o melodie personalizată de la MANELOMANIA.",
+      "",
+      "Nume: " + d.get("name"),
+      "Telefon: " + d.get("phone"),
+      "Melodia este pentru: " + (d.get("dedication") || "Nespecificat"),
+      "Ocazie: " + d.get("occasion"),
+      "Atmosferă: " + d.get("genre"),
+      "Voce: " + d.get("voice"),
+      "Poveste și mesaj: " + d.get("story"),
+      "Alte preferințe: " + (d.get("extra") || "Nespecificat")
+    ].join("\\n");
+    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message), "_blank", "noopener");
+    status.textContent = "Se deschide WhatsApp cu solicitarea completată.";
+  });
+</script>
+</body>
+</html>
